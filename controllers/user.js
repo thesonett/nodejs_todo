@@ -37,7 +37,7 @@ export const Login = async (req, res) => {
     
     res.cookie("token", token, {
         httpOnly: true,
-        expires: new Date(Date.now() + 60 * 1000),
+        expires: new Date(Date.now() + (3600 * 24 * 2)), // session time expires in 2 days
         sameSite: process.env.NODE_ENV === "Development" ? "lax": "none",
         secure: process.env.NODE_ENV === "Development" ? false: true,
     });
